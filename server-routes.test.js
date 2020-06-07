@@ -25,7 +25,7 @@ const app = express(); //an instance of an express // a fake express app
 app.use(bodyParser.json()); //this made it work
 app.use("/states", serverRoutes); //
 
-// describe("server-routes", () => {
+// describe("testing-server-routes", () => {
 //   it("GET /states - success", async () => {
 //     const { body } = await request(app).get("/states"); //use the request function that we can use the app
 //     expect(body).toEqual([
@@ -48,8 +48,8 @@ app.use("/states", serverRoutes); //
 //   });
 // });
 
-let firstState;
-describe("server-routes", () => {
+// let firstState;
+describe("testing-server-routes", () => {
   it("GET /states - success", async () => {
     const { body } = await request(app).get("/states"); //use the request function that we can use the app// save the response to body variable
     expect(body).toEqual([
@@ -67,7 +67,6 @@ describe("server-routes", () => {
     firstState = body[0];
     // console.log(firstState);
   });
-
   it("GET /states/MI - succes", async () => {
     const { body } = await request(app).get(`/states/${firstState.state}`);
     expect(body).toEqual(firstState);
@@ -105,8 +104,8 @@ describe("server-routes", () => {
         governor: "Kay Ivey",
       },
     ]);
+    expect(save).toHaveBeenCalledTimes(1);
   });
-
   it("PUT /states/MI - success", async () => {
     let stateObj = {
       state: "MI",
@@ -141,7 +140,6 @@ describe("server-routes", () => {
     ]);
     expect(response.statusCode).toEqual(200);
   });
-
   it("DELETE /states/MI - success", async () => {
     const { body } = await request(app).delete("/states/MI");
     expect(body).toEqual({

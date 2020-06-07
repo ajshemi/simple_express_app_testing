@@ -13,5 +13,10 @@
     "state": "NY",
     "capital": "Albany",
     "governor": "Andrew Cuomo"
+  },
+  {
+    "state": "AL",
+    "capital": "Montgomery",
+    "governor": "Kay Ivey"
   }
 ]
